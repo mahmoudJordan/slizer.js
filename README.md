@@ -1,5 +1,5 @@
 # slizer.js
-a Javascript plugin to make a moving background 
+a Javascript plugin to make a moving background (Panoramic Backgrounds)
 
 
 # usage 
