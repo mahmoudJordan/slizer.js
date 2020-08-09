@@ -6,41 +6,48 @@
 
     <title>Slizer.js Demo</title>
     <style>
+        div {
+            margin-top: 50px;
+        }
 
-div{
-    margin-top:50px;
-}
         #htmlObject {
             background: transparent url("panorama.jpeg") repeat scroll 0 0;
             height: 400px;
             width: 100%;
         }
 
-        #htmlObject2 {
+        /* #htmlObject2 {
             background-image:  url("panorama2.jpg");
             height: 400px;
             width: 100%;
-        }
+        } */
     </style>
 </head>
 
 
 <body>
     <div id="htmlObject"></div>
-    <div id="htmlObject2"></div>
+    <img id="htmlObject2" src="panorama2.jpg" alt="">
 
     <script>
         var object = document.getElementById("htmlObject");
         var object2 = document.getElementById("htmlObject2");
         var slized = new Slizer(object);
+
+        slized.Start();
+
+
         var slized2 = new Slizer(object2,
             {
-                RoundInterval : 50,
-                PixelPerRound : 1,
-                Direction : 'v',
-                ApplyDefaultStyle : true
+                RoundInterval: 50,
+                PixelPerRound: 1,
+                Direction: 'v',
+                ApplyDefaultStyle: true
             }
         );
+
+
+        slized2.Start();
     </script>
 </body>
 
