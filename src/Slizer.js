@@ -5,10 +5,10 @@ function Slizer(HtmlObject, options) {
     this.__position = 0;
     this.__htmlObject = HtmlObject;
     this.__options = options;
+    this.__isPlaying = false;
 
-    this._isPlaying = false;
+
     this.PixelPerRound = 1;
-    this.StretchPercentege = 200;
     this.RoundInterval = 100;
     this.Direction = 'h';
     this.ApplyDefaultStyle = false;
@@ -17,11 +17,11 @@ function Slizer(HtmlObject, options) {
 
 
     this.Pause = function () {
-        this._isPlaying = false;
+        this.__isPlaying = false;
     }
 
     this.Play = function () {
-        this._isPlaying = true;
+        this.__isPlaying = true;
     }
 
     this.Start = function () {
@@ -51,10 +51,6 @@ function Slizer(HtmlObject, options) {
 
             if (typeof this.__options.RoundInterval !== 'undefined' && this.__options.RoundInterval !== null) {
                 this.RoundInterval = this.__options.RoundInterval;
-            }
-
-            if (typeof this.__options.StretchPercentege !== 'undefined' && this.__options.StretchPercentege !== null) {
-                this.StretchPercentege = this.__options.StretchPercentege;
             }
 
             if (typeof this.__options.ApplyDefaultStyle !== 'undefined' && this.__options.ApplyDefaultStyle !== null) {
@@ -117,16 +113,15 @@ function Slizer(HtmlObject, options) {
     this.__setPanoramicStyles = function (elem) {
         elem.style["background-position"] = "0 0";
         elem.style["background-repeat"] = "repeat";
-        elem.style["background-size"] = StretchPercentege + "% 100%";
     }
 
     this.__start = function () {
         this.__initialize();
         var self = this;
-        self._isPlaying = true;
+        self.__isPlaying = true;
         this.__interval = window.setInterval(function () {
 
-            if (!self._isPlaying) return false;
+            if (!self.__isPlaying) return false;
 
             self.__position++;
 
@@ -149,9 +144,6 @@ function Slizer(HtmlObject, options) {
             element.setAttribute(attr.nodeName, attr.nodeValue);
         }
     }
-
-
-
 
     this.__initialize();
 }
